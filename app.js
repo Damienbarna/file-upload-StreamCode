@@ -4,7 +4,9 @@ const app = express();
 const cors = require("cors");
 const path = require("path");
 const fs = require("fs");
-const { Products } = require("../back/src/models/modelProducts.js"); // Importez votre modèle
+const {
+  Products,
+} = require("../api-crud-StreamCode/src/models/modelProducts.js");
 
 // Vérifiez si le dossier 'public' existe, sinon créez-le
 const publicDir = path.join(__dirname, "public");
@@ -36,7 +38,6 @@ app.post("/upload", async (req, res) => {
     const imageUrl = `http://localhost:3001/${completeFileName}`;
 
     try {
-      // Sauvegarder toutes les données du produit dans la base de données
       const newProduct = await Products.create({
         ...productData,
         image: imageUrl,
