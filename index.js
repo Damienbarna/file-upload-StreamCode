@@ -22,7 +22,7 @@ sequelize
     console.error("impossible de ca connecter à la bdd :", error)
   );
 
-sequelize.sync({ force: true }).then(async () => {
+sequelize.sync(async () => {
   console.log("Modèles et tables synchronisésssssss.");
 });
 
